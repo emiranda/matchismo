@@ -37,9 +37,9 @@
 }
 
 // For this view control the actual contents is perfectly fine
--(NSString *)parseCardContentsForDisplay:(NSString *)contents
+-(NSAttributedString *)parseCardContentsForDisplay:(Card *)card
 {
-    return contents;
+    return [[NSAttributedString alloc]initWithString:card.contents];
 }
 
 

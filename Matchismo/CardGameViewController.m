@@ -43,19 +43,28 @@
 
 -(void)setCardButtons:(NSArray *)cardButtons
 {
+
+    
+    for (UIButton *button in cardButtons) {
+        
+        [self buttonDisplay:button];
+    }
+    _cardButtons = cardButtons;
+}
+
+-(void)buttonDisplay:(UIButton *)button
+{
+    
     UIImage *cardImage = [UIImage imageNamed:@"playing-card-back.jpg"];
     UIImage *blank = [[UIImage alloc] init];
     
-    for (UIButton *button in cardButtons) {
-        [button setImage:cardImage forState:UIControlStateNormal];
-        [button setImage:blank forState:UIControlStateSelected];
-        [button setImage:blank forState:UIControlStateSelected|UIControlStateDisabled];
-        button.imageEdgeInsets = UIEdgeInsetsMake(3, 3, 3, 3);
-    }
-
-    
-    _cardButtons = cardButtons;
+    [button setImage:cardImage forState:UIControlStateNormal];
+    [button setImage:blank forState:UIControlStateSelected];
+    [button setImage:blank forState:UIControlStateSelected|UIControlStateDisabled];
+    button.imageEdgeInsets = UIEdgeInsetsMake(3, 3, 3, 3);
 }
+
+
 
 
 // This getter needs to be overriden in the sub classes for the appropraite game
@@ -70,9 +79,17 @@
     return _game;
 }
 
--(NSString *)parseCardContentsForDisplay:(Card *)card
+-(NSAttributedString *)parseCardContentsForDisplay:(Card *)card
 {
-    return card.contents;
+    return [[NSAttributedString alloc] initWithString:card.contents];
+}
+
+-(void)updateButtonUI:(UIButton *)button withLabel:(NSAttributedString *) attrString
+{
+    [button setAttributedTitle:attrString forState:UIControlStateSelected];
+    
+    [button setAttributedTitle:attrString forState:UIControlStateSelected|UIControlStateDisabled];
+    
 }
 
 
@@ -83,56 +100,93 @@
     {
         Card *card = [self.game cardAtIndex:[self.cardButtons indexOfObject:cardButton]];
         
-        [cardButton setTitle:[self parseCardContentsForDisplay:card] forState:UIControlStateSelected];
-        
-        [cardButton setTitle:[self parseCardContentsForDisplay:card] forState:UIControlStateSelected|UIControlStateDisabled];
-        
         cardButton.selected = card.isFaceUp;
         cardButton.enabled = !card.isUnplayble;
         
         cardButton.alpha = card.isUnplayble ? 0.3 : 1.0;
+        
+        [self updateButtonUI:cardButton withLabel:[self parseCardContentsForDisplay:card]];
+      ;
     }
     self.score = [self.game  score];
     self.flipCount = [self.game flipCount];
     
     // Put the appropriate message
     if (self.game.lastMatchPoints > 0) {
-        
+
         NSMutableArray *cardContents = [[NSMutableArray alloc] init];
-        [cardContents addObject:self.game.lastCardFliped.contents];
+        [cardContents addObject:self.game.lastCardFliped];
         
         for (Card *card in self.game.lastMatchedAgainstCards) {
-            [cardContents addObject:card.contents];
+            [cardContents addObject:card];
         }
         
-        self.flipMessageLabel.text = [@[@"Matched ", [cardContents componentsJoinedByString:@"&"], [NSString stringWithFormat:@"%d", self.game.lastMatchPoints], @" point!"] componentsJoinedByString:@""];
+        NSMutableAttributedString *message = [[NSMutableAttributedString alloc] initWithString:@"Matched "];
+        for (Card *card in cardContents) {
+            //            [cardContents addObject:[self parseCardContentsForDisplay:card]];
+            
+            [message appendAttributedString:[self parseCardContentsForDisplay:card]];
+            
+            if(card != self.game.lastMatchedAgainstCards[self.game.lastMatchedAgainstCards.count - 1])
+                [message appendAttributedString:[[NSMutableAttributedString alloc] initWithString:@" & "]];
+            
+        }
+        
+        NSString *points = [@[[NSString stringWithFormat:@"%d", self.game.lastMatchPoints], @" point!"] componentsJoinedByString:@""];
+        
+        [message appendAttributedString:[[NSMutableAttributedString alloc] initWithString:points]];
+        
+        //        self.flipMessageLabel.text = message;
+        
+        
+        self.flipMessageLabel.attributedText = message;
         
    
     
     }else if(self.game.lastMatchPoints < 0){
-        
+
         NSMutableArray *cardContents = [[NSMutableArray alloc] init];
-        [cardContents addObject:self.game.lastCardFliped.contents];
+        [cardContents addObject:self.game.lastCardFliped];
         
         for (Card *card in self.game.lastMatchedAgainstCards) {
-            [cardContents addObject:card.contents];
+            [cardContents addObject:card];
         }
         
-        self.flipMessageLabel.text = [@[[cardContents componentsJoinedByString:@"&"], @" Don't match! ",[NSString stringWithFormat:@"%d", self.game.lastMatchPoints], @" point penalty."] componentsJoinedByString:@""];
+        NSMutableAttributedString *message = [[NSMutableAttributedString alloc] initWithString:@""];
+        for (Card *card in cardContents) {
+//            [cardContents addObject:[self parseCardContentsForDisplay:card]];
+            
+            [message appendAttributedString:[self parseCardContentsForDisplay:card]];
+            
+            if(card != self.game.lastMatchedAgainstCards[self.game.lastMatchedAgainstCards.count - 1])
+            [message appendAttributedString:[[NSMutableAttributedString alloc] initWithString:@" & "]];
         
+        }
+        
+        NSString *points = [@[[NSString stringWithFormat:@"%d", self.game.lastMatchPoints], @" point penalty."] componentsJoinedByString:@""];
+   
+        [message appendAttributedString:[[NSMutableAttributedString alloc] initWithString:points]];
+
+        
+        self.flipMessageLabel.attributedText = message;
 
     }else if(self.game.lastMatchPoints == 0 && self.game.lastCardFliped)
     {
-        self.flipMessageLabel.text = [@[@"Flipped up a ", self.game.lastCardFliped.contents] componentsJoinedByString:@""];
+        NSMutableAttributedString *message = [[NSMutableAttributedString alloc] initWithString:@"Flipped up a "];
+        
+        [message appendAttributedString:[self parseCardContentsForDisplay:self.game.lastCardFliped]];
+        
     }
 
     // If this is a new game but a "start flipping message"
     if (self.game.flipCount == 0) {
-        self.flipMessageLabel.text = @"Start Flipping!";
+        self.flipMessageLabel.attributedText = [[NSAttributedString alloc] initWithString:@"Start Flipping!"];
     }
 
     
 }
+
+// Perhaps create a function that parsing for the fip message.
 
 -(void)setScore:(int)score
 {
@@ -154,16 +208,7 @@
     [self updateUI];
     
 }
-- (IBAction)changeMatchMode:(UISegmentedControl *)sender {
-    
-    // This should never be called when the game is going on since
-    // the component would be disabled
-    // Call dealNewGame so we start a new game with the new
-    // value of the component
-    
-    [self dealNewGame:nil];
-    
-}
+
 
 - (IBAction)flipCard:(UIButton *)sender {
     

@@ -85,7 +85,7 @@
     NSMutableArray *otherFaceUpPlayableCards;
     
     // Set these values to nothing by default
-    self.lastMatchedAgainstCards = nil;
+    self.lastMatchedAgainstCards = 0;
     self.lastMatchPoints = 0;
     self.lastCardFliped = nil;
     

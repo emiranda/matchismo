@@ -20,9 +20,11 @@
     return [arrayContents componentsJoinedByString:@""];
 }
 
+
+
 -(int)match:(NSArray *)otherCards
 {
-    int score = 0;
+    int score = 1;
     
     // I could improve this by just not subtracting and settin gallDifferent to 0
     int allSame = 2; // should match exactly twice in the same category for a match
@@ -34,24 +36,35 @@
     int shadeMatches = 0;
     int countMatches = 0;
     
+    SetCard *c2, *c3;
+    
+    if (otherCards.count == 2) {
+        c2 = otherCards[0];
+        c3 = otherCards[1];
+    }
+
+        
+    
     for (SetCard *otherCard in otherCards) {
 
         [self.color isEqualToString:otherCard.color] ? colorMatches++ : colorMatches--;
         [self.shape isEqualToString:otherCard.shape] ? shapeMatches++ : shapeMatches--;
-        [self.shape isEqualToString:otherCard.shape] ? shadeMatches++ : shadeMatches--;
-        self.color == otherCard.color ? countMatches++ : countMatches--;
+        [self.shade isEqualToString:otherCard.shade] ? shadeMatches++ : shadeMatches--;
+        self.count == otherCard.count ? countMatches++ : countMatches--;
     }
     
-    if(colorMatches != allSame || colorMatches != allDifferent)
+
+    
+    if(!(colorMatches == allSame || colorMatches == allDifferent))
         return 0;
     
-    if(shapeMatches != allSame || shapeMatches != allDifferent)
+    if(!(shapeMatches == allSame || shapeMatches == allDifferent))
         return 0;
     
-    if(shadeMatches != allSame || shadeMatches != allDifferent)
+    if(!(shadeMatches == allSame || shadeMatches == allDifferent))
         return 0;
     
-    if(countMatches != allSame || countMatches != allDifferent)
+    if(!(countMatches == allSame || countMatches == allDifferent))
         return 0;
     
 
@@ -72,6 +85,20 @@
 + (NSArray *)validShades
 {
     return @[@"solid", @"striped", @"open"];
+}
+
++(float)shadeFloatValues:(NSString *)shade
+{
+    if([shade isEqualToString:[SetCard validShades][0]])
+        return 0;
+    
+    if([shade isEqualToString:[SetCard validShades][1]])
+        return .1;
+    
+    if([shade isEqualToString:[SetCard validShades][2]])
+        return 1;
+    
+    return 0;
 }
 
 + (NSUInteger)maxCount

@@ -17,6 +17,7 @@
 @property (nonatomic) int misMatchPenalty;
 
 
--(NSString *)parseCardContentsForDisplay:(Card *)card;
-
+-(NSAttributedString *)parseCardContentsForDisplay:(Card *)card;
+-(void)buttonDisplay:(UIButton *)button;
+-(void)updateButtonUI:(UIButton *)button withLabel:(NSAttributedString *) label;
 @end

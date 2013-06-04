@@ -19,5 +19,6 @@
 + (NSArray *)validShapes;
 + (NSArray *)validShades;
 + (NSUInteger)maxCount;
++(float)shadeFloatValues:(NSString *)shade;
 
 @end

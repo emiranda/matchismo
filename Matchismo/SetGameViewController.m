@@ -8,6 +8,7 @@
 
 #import "SetGameViewController.h"
 #import "SetCardDeck.h"
+#import "SetCard.h"
 
 @interface SetGameViewController ()
 
@@ -35,34 +36,60 @@
     return 1;
 }
 
--(NSString *)parseCardContentsForDisplay:(Card *)card
+-(void)buttonDisplay:(UIButton *)button
 {
-    
-    
-    
-    return card.contents;
+
+    [button setBackgroundColor:[UIColor grayColor]];
+    button.imageEdgeInsets = UIEdgeInsetsMake(3, 3, 3, 3);
 }
 
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+-(void)updateButtonUI:(UIButton *)button withLabel:(NSAttributedString *) attrString
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
+    [button setAttributedTitle:attrString forState:UIControlStateSelected];
+    [button setAttributedTitle:attrString forState:UIControlStateNormal];
+    
+    [button setAttributedTitle:attrString forState:UIControlStateSelected|UIControlStateDisabled];
+    if (button.selected) 
+        [button setBackgroundColor:[UIColor grayColor]];
+    else
+        [button setBackgroundColor:[UIColor clearColor]];
+}
+
+-(NSMutableAttributedString *)parseCardContentsForDisplay:(Card *)card
+{
+    NSMutableString *displayText = [[NSMutableString alloc] initWithString:@""];
+    NSMutableAttributedString *attString;
+    if([card isMemberOfClass:[SetCard class]])
+    {
+        SetCard *setCard = (SetCard *)card;
+        
+        // Put the appropriate number of symboles
+        for (int i = 1; i <= setCard.count; i++) {
+            [displayText appendString:setCard.shape];
+        }
+        
+        attString = [[NSMutableAttributedString alloc] initWithString:displayText];
+        
+        SEL colorSelector = NSSelectorFromString([setCard.color stringByAppendingString:@"Color"]);
+        UIColor *color;
+        
+        if([UIColor respondsToSelector:NSSelectorFromString (@"blueColor")])
+            color = [UIColor performSelector:colorSelector];
+        color = [color colorWithAlphaComponent:1];
+        
+        NSRange range = NSMakeRange([@0 unsignedIntegerValue], attString.length);
+
+        
+        UIColor *forGround = [color colorWithAlphaComponent:[SetCard shadeFloatValues:setCard.shade]];
+        
+        [attString addAttribute:NSForegroundColorAttributeName value:forGround range: range];
+        
+        [attString addAttribute:NSStrokeWidthAttributeName value:[NSNumber numberWithFloat: -2.0] range:range];
+    
+        [attString addAttribute:NSStrokeColorAttributeName value:color range: range];
+    
     }
-    return self;
+    
+    return attString;
 }
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 @end
