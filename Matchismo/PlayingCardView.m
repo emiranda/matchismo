@@ -41,7 +41,6 @@
 
 - (void)drawRect:(CGRect)rect
 {
-// Drawing code
     
     UIBezierPath *roundedRect = [UIBezierPath bezierPathWithRoundedRect:self.bounds cornerRadius:12.0];
     
@@ -51,7 +50,7 @@
     UIRectFill(self.bounds);
     
 
-        if(self.faceUp)
+    if(self.faceUp)
     {
         UIImage *faceImage = [UIImage imageNamed:[NSString stringWithFormat:@"%@%@.jpg", [self rankAsString], self.suit]];
         if (faceImage) {
@@ -74,6 +73,11 @@
     
     [[UIColor blackColor] setStroke];
     [roundedRect stroke];
+    
+}
+
+- (void)drawCard
+{
     
 }
 

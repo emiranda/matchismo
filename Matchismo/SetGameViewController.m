@@ -9,6 +9,8 @@
 #import "SetGameViewController.h"
 #import "SetCardDeck.h"
 #import "SetCard.h"
+#import "SetCardView.h"
+
 
 @interface SetGameViewController ()
 
@@ -34,6 +36,30 @@
 -(int)misMatchPenalty
 {
     return 1;
+}
+
+- (void)updateCardView:(UIView *)cardView withCard:(Card *)card
+{
+    if([cardView isMemberOfClass:[SetCardView class]] && [card isMemberOfClass:[SetCard class]])
+    {
+        SetCardView *setCardView = (SetCardView *)cardView;
+        SetCard *setCard = (SetCard *)card;
+        
+        setCardView.shape = setCard.shape;
+        setCardView.shade = setCard.shade;
+        setCardView.color = setCard.color;
+        setCardView.count = setCard.count;
+        
+        setCardView.selected = setCard.isFaceUp;
+        
+        setCardView.alpha = setCard.isUnplayble ? 0.3 : 1.0;
+        
+//        playingCardView.rank = playingCard.rank;
+//        playingCardView.suit = playingCard.suit;
+//        playingCardView.faceUp = playingCard.isFaceUp;
+        
+//        playingCardView.alpha = playingCard.isUnplayble ? 0.3 : 1.0;
+    }
 }
 
 -(void)buttonDisplay:(UIButton *)button

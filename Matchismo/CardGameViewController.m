@@ -11,12 +11,13 @@
 #import "Card.h"
 #import "CardMatchingGame.h"
 
-
 // Private properties go in here
 @interface CardGameViewController ()
 
+// An array  has a strong pointer to all the things in the arra
 
-// An array  has a strong pointer to all the things in the array
+
+@property (strong, nonatomic) IBOutletCollection(UIView) NSArray *cardViews;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
 
 // This is set to weak because the view points strongly to it
@@ -40,6 +41,18 @@
     [self dealNewGame:nil];
 }
 
+-(void)setCardViews:(NSArray *)cardViews
+{
+    for(UIView *view in cardViews)
+    {
+        UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(flipCard:)];
+        
+        [view addGestureRecognizer:recognizer];
+        
+    }
+
+    _cardViews = cardViews;
+}
 
 -(void)setCardButtons:(NSArray *)cardButtons
 {
@@ -73,7 +86,7 @@
 {
 
     if (!_game)
-            _game = [[ CardMatchingGame alloc] initWithCardCount:self.cardButtons.count
+            _game = [[ CardMatchingGame alloc] initWithCardCount:self.cardViews.count
                                                    usingDeck:self.deck
                                                    matchMode:self.matchCount matchBonus:self.matchBonus misMatchPenalty:self.misMatchPenalty];
     return _game;
@@ -87,15 +100,34 @@
 -(void)updateButtonUI:(UIButton *)button withLabel:(NSAttributedString *) attrString
 {
     [button setAttributedTitle:attrString forState:UIControlStateSelected];
-    
     [button setAttributedTitle:attrString forState:UIControlStateSelected|UIControlStateDisabled];
     
 }
 
+- (void)updateCardView:(UIView *)cardView withCard:(Card *)card
+{
+    // abstract
+}
 
 
 -(void)updateUI
 {
+    
+    for (UIView *cardView in self.cardViews) {
+        Card *card = [self.game cardAtIndex:[self.cardViews indexOfObject:cardView]];
+
+        [self updateCardView:cardView withCard:card];
+        
+    }
+    
+//    for (UIView *cardView in self.cardViews) {
+//       Card *card = [self.game cardAtIndex:[self.cardViews indexOfObject:cardView]];
+        
+//        
+        
+//    }
+    
+    /*
     for (UIButton *cardButton in self.cardButtons)
     {
         Card *card = [self.game cardAtIndex:[self.cardButtons indexOfObject:cardButton]];
@@ -106,8 +138,11 @@
         cardButton.alpha = card.isUnplayble ? 0.3 : 1.0;
         
         [self updateButtonUI:cardButton withLabel:[self parseCardContentsForDisplay:card]];
-      ;
+      
     }
+    */
+    
+    
     self.score = [self.game  score];
     self.flipCount = [self.game flipCount];
     
@@ -136,13 +171,9 @@
         
         [message appendAttributedString:[[NSMutableAttributedString alloc] initWithString:points]];
         
-        //        self.flipMessageLabel.text = message;
-        
         
         self.flipMessageLabel.attributedText = message;
-        
-   
-    
+
     }else if(self.game.lastMatchPoints < 0){
 
         NSMutableArray *cardContents = [[NSMutableArray alloc] init];
@@ -209,15 +240,12 @@
     
 }
 
+- (IBAction)flipCard:(UITapGestureRecognizer *)sender {
 
-- (IBAction)flipCard:(UIButton *)sender {
-    
-    [self.game flipCardAtIndex:[self.cardButtons indexOfObject:sender]];
+    [self.game flipCardAtIndex:[self.cardViews indexOfObject:sender.view]];
     self.flipMessageLabel.alpha = 1;
     [self updateUI];
 
-
 }
-
 
 @end

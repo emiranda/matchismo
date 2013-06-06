@@ -8,6 +8,8 @@
 
 #import "MatchCardGameViewController.h"
 #import "PlayingCardDeck.h"
+#import "PlayingCardView.h"
+#import "PlayingCard.h"
 
 
 @interface MatchCardGameViewController ()
@@ -42,27 +44,19 @@
     return [[NSAttributedString alloc]initWithString:card.contents];
 }
 
-
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (void)updateCardView:(UIView *)cardView withCard:(Card *)card
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+   if([cardView isMemberOfClass:[PlayingCardView class]] && [card isMemberOfClass:[PlayingCard class]])
+   {
+       PlayingCardView *playingCardView = (PlayingCardView *)cardView;
+       PlayingCard *playingCard = (PlayingCard *)card;
+       
+       playingCardView.rank = playingCard.rank;
+       playingCardView.suit = playingCard.suit;
+       playingCardView.faceUp = playingCard.isFaceUp;
+       
+       playingCardView.alpha = playingCard.isUnplayble ? 0.3 : 1.0;
+   }
 }
 
 @end
