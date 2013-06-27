@@ -12,13 +12,14 @@
 #import "CardMatchingGame.h"
 
 // Private properties go in here
-@interface CardGameViewController ()
+@interface CardGameViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
 
 // An array  has a strong pointer to all the things in the arra
 
 
 @property (strong, nonatomic) IBOutletCollection(UIView) NSArray *cardViews;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
+@property (weak, nonatomic) IBOutlet UICollectionView *cardCollectionView;
 
 // This is set to weak because the view points strongly to it
 // so if the view isn't using this anymore you don't need it
@@ -34,6 +35,33 @@
 @implementation CardGameViewController
 
 // For loading a game stine
+
+-(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+{
+    return 1;
+    
+    
+}
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return 5;//self.game.numberOfCards;
+}
+
+
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"SetCard"  forIndexPath:indexPath];
+    
+    Card *card = [self.game cardAtIndex:indexPath.item];
+    [self updateCell:cell usingCard:card];
+    return cell;
+}
+
+- (void)updateCell:(UICollectionViewCell *)cell  usingCard:(Card *)card
+{
+    // Abstract
+}
+
 
 -(void)viewDidLoad
 {
@@ -86,10 +114,23 @@
 {
 
     if (!_game)
-            _game = [[ CardMatchingGame alloc] initWithCardCount:self.cardViews.count
-                                                   usingDeck:self.deck
+            _game = [[ CardMatchingGame alloc] initWithCardCount:[self startingCardCount]
+                                                   usingDeck:[self getDeck]
                                                    matchMode:self.matchCount matchBonus:self.matchBonus misMatchPenalty:self.misMatchPenalty];
     return _game;
+}
+
+- (Deck *)getDeck
+{
+    // abstract
+    return nil;
+}
+
+- (NSUInteger)startingCardCount
+{
+    // abstract
+    return 0;
+
 }
 
 -(NSAttributedString *)parseCardContentsForDisplay:(Card *)card

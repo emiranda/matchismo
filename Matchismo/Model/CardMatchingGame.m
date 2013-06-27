@@ -33,6 +33,11 @@
     return _cards;
 }
 
+- (int)numberOfCards
+{
+    return self.cards.count;
+}
+
 // Pass a default flip message if there is no message yet
 // this is used so that we see something when the user hits deal
 - (NSString *)flipMessage

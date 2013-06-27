@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8411E46E1761385500C5B862 /* SetCardCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8411E46D1761385500C5B862 /* SetCardCollectionViewCell.m */; };
 		846089EC174ED06000C42FAA /* CardMatchingGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 846089EB174ED06000C42FAA /* CardMatchingGame.m */; };
 		84622E60175FC98600F78A56 /* SetCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84622E5F175FC98600F78A56 /* SetCardView.m */; };
 		84622E63175FCBBA00F78A56 /* SetCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84622E62175FCBBA00F78A56 /* SetCardViewController.m */; };
@@ -60,6 +61,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8411E46C1761385500C5B862 /* SetCardCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetCardCollectionViewCell.h; sourceTree = "<group>"; };
+		8411E46D1761385500C5B862 /* SetCardCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetCardCollectionViewCell.m; sourceTree = "<group>"; };
 		846089EA174ED06000C42FAA /* CardMatchingGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CardMatchingGame.h; path = Model/CardMatchingGame.h; sourceTree = "<group>"; };
 		846089EB174ED06000C42FAA /* CardMatchingGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CardMatchingGame.m; path = Model/CardMatchingGame.m; sourceTree = "<group>"; };
 		84622E5E175FC98600F78A56 /* SetCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetCardView.h; sourceTree = "<group>"; };
@@ -238,6 +241,8 @@
 		8490E8F6175D692000012FB6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8411E46C1761385500C5B862 /* SetCardCollectionViewCell.h */,
+				8411E46D1761385500C5B862 /* SetCardCollectionViewCell.m */,
 				8490E8F7175D695100012FB6 /* PlayingCardView.h */,
 				84622E5E175FC98600F78A56 /* SetCardView.h */,
 				84622E5F175FC98600F78A56 /* SetCardView.m */,
@@ -387,6 +392,7 @@
 				84F261411754541A00AA0F2E /* MatchCardGameViewController.m in Sources */,
 				84622E60175FC98600F78A56 /* SetCardView.m in Sources */,
 				84622E63175FCBBA00F78A56 /* SetCardViewController.m in Sources */,
+				8411E46E1761385500C5B862 /* SetCardCollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,6 +10,7 @@
 #import "SetCardDeck.h"
 #import "SetCard.h"
 #import "SetCardView.h"
+#import "SetCardCollectionViewCell.h"
 
 
 @interface SetGameViewController ()
@@ -36,6 +37,35 @@
 -(int)misMatchPenalty
 {
     return 1;
+}
+
+- (void)updateCell:(UICollectionViewCell *)cell usingCard:(Card *)card
+{
+    // Abstract
+    
+    if([cell isKindOfClass:[SetCardCollectionViewCell class]] && [card isKindOfClass:[SetCard class]])
+    {
+        SetCardView *setCardView = ((SetCardCollectionViewCell *)cell).setCardView;
+        SetCard *setCard = (SetCard *)card;
+        
+        setCardView.shade = setCard.shade;
+        setCardView.shape = setCard.shape;
+        setCardView.count = setCard.count;
+        setCardView.color = setCard.color;
+    }
+}
+
+- (NSUInteger)startingCardCount
+{
+    // abstract
+    return 4;
+    
+}
+
+- (Deck *)getDeck
+{
+    // abstract
+    return [[SetCardDeck alloc] init];
 }
 
 - (void)updateCardView:(UIView *)cardView withCard:(Card *)card

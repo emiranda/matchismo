@@ -11,7 +11,6 @@
 
 @interface CardGameViewController : UIViewController
 
-@property (strong, nonatomic) Deck *deck;
 @property (nonatomic) int matchCount;
 @property (nonatomic) int matchBonus;
 @property (nonatomic) int misMatchPenalty;
@@ -20,4 +19,5 @@
 -(NSAttributedString *)parseCardContentsForDisplay:(Card *)card;
 -(void)buttonDisplay:(UIButton *)button;
 -(void)updateButtonUI:(UIButton *)button withLabel:(NSAttributedString *) label;
+-(void)updateCell:(UICollectionViewCell *)cell  usingCard:(Card *)card;
 @end

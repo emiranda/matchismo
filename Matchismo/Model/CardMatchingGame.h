@@ -28,6 +28,6 @@
 @property (nonatomic, readonly) Card *lastCardFliped;
 @property (nonatomic, readonly) NSArray *lastMatchedAgainstCards;
 @property (nonatomic, readonly) int lastMatchPoints;
-
+@property (nonatomic, readonly) int numberOfCards;
 
 @end

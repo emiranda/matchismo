@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="11G63" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="rN5-t2-1Sc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="11G63" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="1c6-9z-jhk">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -12,30 +12,34 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="411"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Flips: 0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fW1-4e-88k">
-                                <rect key="frame" x="23" y="293" width="117" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Flips: 0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fW1-4e-88k">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="117" id="D3C-DX-gCX"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Score 0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="c1b-nd-UxX">
-                                <rect key="frame" x="191" y="293" width="112" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Score 0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c1b-nd-UxX">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="112" id="iB4-ba-Qqd"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Start Flipping!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="c0e-oi-PGr">
-                                <rect key="frame" x="20" y="263" width="280" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Start Flipping!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c0e-oi-PGr">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="YQw-SV-IPU"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="alV-Y8-b4z">
-                                <rect key="frame" x="113" y="348" width="94" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="alV-Y8-b4z">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="94" id="L3M-wK-YT3"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Deal">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -48,69 +52,104 @@
                                     <action selector="dealNewGame:" destination="2" eventType="touchUpInside" id="IPZ-a7-whu"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" id="Tnm-MS-0Yq" customClass="PlayingCardView">
-                                <rect key="frame" x="28" y="20" width="60" height="78"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tnm-MS-0Yq" customClass="PlayingCardView">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
                             </view>
-                            <view contentMode="scaleToFill" id="Rcj-F7-lic" customClass="PlayingCardView">
-                                <rect key="frame" x="96" y="20" width="60" height="78"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rcj-F7-lic" customClass="PlayingCardView">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
-                            <view contentMode="scaleToFill" id="nnb-Ma-Pbu" customClass="PlayingCardView">
-                                <rect key="frame" x="164" y="20" width="60" height="78"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nnb-Ma-Pbu" customClass="PlayingCardView">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
-                            <view contentMode="scaleToFill" id="yY2-UD-11g" customClass="PlayingCardView">
-                                <rect key="frame" x="232" y="20" width="60" height="78"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yY2-UD-11g" customClass="PlayingCardView">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
-                            <view contentMode="scaleToFill" id="06e-Hj-QDj" customClass="PlayingCardView">
-                                <rect key="frame" x="28" y="106" width="60" height="78"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="06e-Hj-QDj" customClass="PlayingCardView">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
-                            <view contentMode="scaleToFill" id="Juk-pH-3sb" customClass="PlayingCardView">
-                                <rect key="frame" x="96" y="106" width="60" height="78"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Juk-pH-3sb" customClass="PlayingCardView">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
-                            <view contentMode="scaleToFill" id="27s-YI-VGd" customClass="PlayingCardView">
-                                <rect key="frame" x="164" y="106" width="60" height="78"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="27s-YI-VGd" customClass="PlayingCardView">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
-                            <view contentMode="scaleToFill" id="dve-Sl-TXS" customClass="PlayingCardView">
-                                <rect key="frame" x="232" y="106" width="60" height="78"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dve-Sl-TXS" customClass="PlayingCardView">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
-                            <view contentMode="scaleToFill" id="Ti6-12-VuY" customClass="PlayingCardView">
-                                <rect key="frame" x="28" y="192" width="60" height="78"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ti6-12-VuY" customClass="PlayingCardView">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
-                            <view contentMode="scaleToFill" id="EsI-ts-NBl" customClass="PlayingCardView">
-                                <rect key="frame" x="96" y="192" width="60" height="78"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EsI-ts-NBl" customClass="PlayingCardView">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
-                            <view contentMode="scaleToFill" id="r1Q-jo-5L6" customClass="PlayingCardView">
-                                <rect key="frame" x="164" y="192" width="60" height="78"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r1Q-jo-5L6" customClass="PlayingCardView">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
-                            <view contentMode="scaleToFill" id="gmW-Pn-Ocp" customClass="PlayingCardView">
-                                <rect key="frame" x="232" y="192" width="60" height="78"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gmW-Pn-Ocp" customClass="PlayingCardView">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="fW1-4e-88k" secondAttribute="bottom" constant="97" id="0wm-Ao-UXu"/>
+                            <constraint firstItem="dve-Sl-TXS" firstAttribute="leading" secondItem="yY2-UD-11g" secondAttribute="leading" type="default" id="1jc-dD-pgd"/>
+                            <constraint firstItem="fW1-4e-88k" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="23" id="43q-fh-DWK"/>
+                            <constraint firstItem="EsI-ts-NBl" firstAttribute="leading" secondItem="Ti6-12-VuY" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="59n-NR-8II"/>
+                            <constraint firstItem="Rcj-F7-lic" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="96" id="5sp-R7-PU9"/>
+                            <constraint firstItem="gmW-Pn-Ocp" firstAttribute="leading" secondItem="r1Q-jo-5L6" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="5yL-HD-VKo"/>
+                            <constraint firstItem="06e-Hj-QDj" firstAttribute="top" secondItem="Juk-pH-3sb" secondAttribute="top" type="default" id="70P-lw-snH"/>
+                            <constraint firstItem="c0e-oi-PGr" firstAttribute="centerX" secondItem="alV-Y8-b4z" secondAttribute="centerX" type="default" id="9Gi-Rr-m8I"/>
+                            <constraint firstItem="dve-Sl-TXS" firstAttribute="trailing" secondItem="yY2-UD-11g" secondAttribute="trailing" type="default" id="9JE-c4-E1k"/>
+                            <constraint firstItem="gmW-Pn-Ocp" firstAttribute="top" secondItem="dve-Sl-TXS" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="9KL-b3-sub"/>
+                            <constraint firstItem="Juk-pH-3sb" firstAttribute="leading" secondItem="EsI-ts-NBl" secondAttribute="leading" type="default" id="ADp-Jx-uGE"/>
+                            <constraint firstAttribute="trailing" secondItem="c0e-oi-PGr" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="Bhs-lO-9Z8"/>
+                            <constraint firstItem="27s-YI-VGd" firstAttribute="leading" secondItem="r1Q-jo-5L6" secondAttribute="leading" type="default" id="CMb-qT-HuM"/>
+                            <constraint firstItem="06e-Hj-QDj" firstAttribute="top" secondItem="3" secondAttribute="top" constant="106" id="CNM-YQ-1tg"/>
+                            <constraint firstItem="fW1-4e-88k" firstAttribute="baseline" secondItem="c1b-nd-UxX" secondAttribute="baseline" type="default" id="DW0-52-mCt"/>
+                            <constraint firstItem="Rcj-F7-lic" firstAttribute="top" secondItem="3" secondAttribute="top" constant="20" symbolic="YES" type="default" id="H6i-OO-jjd"/>
+                            <constraint firstItem="dve-Sl-TXS" firstAttribute="leading" secondItem="27s-YI-VGd" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="HTx-NM-13Q"/>
+                            <constraint firstAttribute="bottom" secondItem="c0e-oi-PGr" secondAttribute="bottom" constant="113" id="JUi-Oy-7To"/>
+                            <constraint firstItem="nnb-Ma-Pbu" firstAttribute="top" secondItem="3" secondAttribute="top" constant="20" symbolic="YES" type="default" id="JXf-7F-eip"/>
+                            <constraint firstItem="r1Q-jo-5L6" firstAttribute="top" secondItem="gmW-Pn-Ocp" secondAttribute="top" type="default" id="Ki3-7R-wka"/>
+                            <constraint firstItem="Juk-pH-3sb" firstAttribute="leading" secondItem="Rcj-F7-lic" secondAttribute="leading" type="default" id="MWP-uV-skY"/>
+                            <constraint firstItem="dve-Sl-TXS" firstAttribute="leading" secondItem="gmW-Pn-Ocp" secondAttribute="leading" type="default" id="Maw-Hx-4ag"/>
+                            <constraint firstItem="27s-YI-VGd" firstAttribute="leading" secondItem="nnb-Ma-Pbu" secondAttribute="leading" type="default" id="Mod-2P-5Lg"/>
+                            <constraint firstItem="EsI-ts-NBl" firstAttribute="bottom" secondItem="r1Q-jo-5L6" secondAttribute="bottom" type="default" id="NWE-SW-zUD"/>
+                            <constraint firstItem="EsI-ts-NBl" firstAttribute="bottom" secondItem="Ti6-12-VuY" secondAttribute="bottom" type="default" id="Pk8-P1-plg"/>
+                            <constraint firstItem="yY2-UD-11g" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="232" id="Qe6-Pw-kYb"/>
+                            <constraint firstItem="27s-YI-VGd" firstAttribute="top" secondItem="Juk-pH-3sb" secondAttribute="top" type="default" id="THd-Ac-usl"/>
+                            <constraint firstItem="EsI-ts-NBl" firstAttribute="top" secondItem="Ti6-12-VuY" secondAttribute="top" type="default" id="UyA-4t-dhr"/>
+                            <constraint firstItem="dve-Sl-TXS" firstAttribute="trailing" secondItem="gmW-Pn-Ocp" secondAttribute="trailing" type="default" id="Vag-cW-12w"/>
+                            <constraint firstItem="06e-Hj-QDj" firstAttribute="leading" secondItem="Tnm-MS-0Yq" secondAttribute="leading" type="default" id="Vtb-ic-oZ1"/>
+                            <constraint firstItem="Juk-pH-3sb" firstAttribute="top" secondItem="Rcj-F7-lic" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="YHJ-QR-cIr"/>
+                            <constraint firstItem="Ti6-12-VuY" firstAttribute="top" secondItem="3" secondAttribute="top" constant="192" id="YrO-rC-Fa7"/>
+                            <constraint firstItem="06e-Hj-QDj" firstAttribute="leading" secondItem="Ti6-12-VuY" secondAttribute="leading" type="default" id="bOu-5w-WDB"/>
+                            <constraint firstItem="r1Q-jo-5L6" firstAttribute="leading" secondItem="EsI-ts-NBl" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="d39-8A-Wtm"/>
+                            <constraint firstItem="r1Q-jo-5L6" firstAttribute="top" secondItem="EsI-ts-NBl" secondAttribute="top" type="default" id="dtp-L6-hxy"/>
+                            <constraint firstItem="yY2-UD-11g" firstAttribute="top" secondItem="3" secondAttribute="top" constant="20" symbolic="YES" type="default" id="ekg-gz-Uzi"/>
+                            <constraint firstAttribute="bottom" secondItem="alV-Y8-b4z" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="fPP-w4-IJj"/>
+                            <constraint firstItem="Rcj-F7-lic" firstAttribute="leading" secondItem="Tnm-MS-0Yq" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="fgY-hW-BaU"/>
+                            <constraint firstItem="nnb-Ma-Pbu" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="164" id="ft5-sU-Efq"/>
+                            <constraint firstItem="gmW-Pn-Ocp" firstAttribute="bottom" secondItem="r1Q-jo-5L6" secondAttribute="bottom" type="default" id="jzJ-FC-JYR"/>
+                            <constraint firstAttribute="trailing" secondItem="yY2-UD-11g" secondAttribute="trailing" constant="28" id="kLn-Nw-6ZG"/>
+                            <constraint firstItem="c0e-oi-PGr" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="kfR-Kj-J1w"/>
+                            <constraint firstItem="Tnm-MS-0Yq" firstAttribute="top" secondItem="3" secondAttribute="top" constant="20" symbolic="YES" type="default" id="mBm-rE-bi2"/>
+                            <constraint firstItem="27s-YI-VGd" firstAttribute="leading" secondItem="Juk-pH-3sb" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="myl-Df-LMP"/>
+                            <constraint firstAttribute="trailing" secondItem="c1b-nd-UxX" secondAttribute="trailing" constant="17" id="oau-of-w9S"/>
+                            <constraint firstItem="27s-YI-VGd" firstAttribute="top" secondItem="dve-Sl-TXS" secondAttribute="top" type="default" id="qSw-vf-xuh"/>
+                            <constraint firstItem="06e-Hj-QDj" firstAttribute="top" secondItem="Tnm-MS-0Yq" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="rCv-lw-Fyl"/>
+                            <constraint firstAttribute="bottom" secondItem="Ti6-12-VuY" secondAttribute="bottom" constant="141" id="rF7-LB-Msg"/>
+                            <constraint firstItem="r1Q-jo-5L6" firstAttribute="top" secondItem="27s-YI-VGd" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="ssg-er-sZ3"/>
+                            <constraint firstItem="yY2-UD-11g" firstAttribute="leading" secondItem="nnb-Ma-Pbu" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="uJO-S4-44c"/>
+                            <constraint firstItem="Tnm-MS-0Yq" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="28" id="ux4-dG-Z9t"/>
+                            <constraint firstItem="EsI-ts-NBl" firstAttribute="top" secondItem="Juk-pH-3sb" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="vEy-Um-Ljh"/>
+                            <constraint firstItem="27s-YI-VGd" firstAttribute="top" secondItem="nnb-Ma-Pbu" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="xGz-xg-WXq"/>
+                            <constraint firstItem="nnb-Ma-Pbu" firstAttribute="leading" secondItem="Rcj-F7-lic" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="xJi-9q-4HW"/>
+                            <constraint firstItem="dve-Sl-TXS" firstAttribute="top" secondItem="yY2-UD-11g" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="xv2-aC-VQe"/>
+                            <constraint firstItem="Juk-pH-3sb" firstAttribute="leading" secondItem="06e-Hj-QDj" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="yYE-9w-3b4"/>
+                            <constraint firstItem="Ti6-12-VuY" firstAttribute="top" secondItem="06e-Hj-QDj" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="zaP-mN-vtu"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Match" id="YYe-7r-xbe"/>
                     <connections>
@@ -144,9 +183,10 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="wCk-P6-Rzz">
-                                <rect key="frame" x="5" y="0.0" width="320" height="460"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="wCk-P6-Rzz">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="3h1-dj-umc"/>
+                                </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ej0-xj-s99">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -157,6 +197,11 @@
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wCk-P6-Rzz" firstAttribute="top" secondItem="fqV-kU-6m3" secondAttribute="top" type="default" id="2QY-P7-giJ"/>
+                            <constraint firstItem="wCk-P6-Rzz" firstAttribute="bottom" secondItem="fqV-kU-6m3" secondAttribute="bottom" type="default" id="GNX-t3-J3n"/>
+                            <constraint firstItem="wCk-P6-Rzz" firstAttribute="leading" secondItem="fqV-kU-6m3" secondAttribute="leading" constant="5" id="Yl3-jI-qNf"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KT5-4e-JZd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -190,23 +235,26 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="411"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Flips: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Od0-8b-Ueg">
-                                <rect key="frame" x="17" y="364" width="85" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Flips: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Od0-8b-Ueg">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="85" id="0Wc-SE-dam"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Score 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="U3r-GC-val">
-                                <rect key="frame" x="212" y="364" width="88" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Score 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U3r-GC-val">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="88" id="nDV-6u-nzZ"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="acb-6D-X3Y">
-                                <rect key="frame" x="110" y="353" width="94" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="acb-6D-X3Y">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="94" id="AnQ-lp-TQ5"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Deal">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -219,202 +267,79 @@
                                     <action selector="dealNewGame:" destination="Y6O-3q-nmH" eventType="touchUpInside" id="h9S-uh-fai"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Start Flipping!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7He-Mt-ums">
-                                <rect key="frame" x="17" y="326" width="280" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Start Flipping!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7He-Mt-ums">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="brg-iz-4BQ"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" id="3tT-p0-Dmj" customClass="SetCardView">
-                                <rect key="frame" x="16" y="85" width="40" height="57"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view contentMode="scaleToFill" id="vK7-qm-XUW" customClass="SetCardView">
-                                <rect key="frame" x="64" y="85" width="40" height="57"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view contentMode="scaleToFill" id="bdc-P0-Wef" customClass="SetCardView">
-                                <rect key="frame" x="112" y="85" width="40" height="57"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view contentMode="scaleToFill" id="Drf-e6-Uw4" customClass="SetCardView">
-                                <rect key="frame" x="163" y="85" width="40" height="57"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view contentMode="scaleToFill" id="dNs-q8-Gp9" customClass="SetCardView">
-                                <rect key="frame" x="211" y="85" width="40" height="57"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view contentMode="scaleToFill" id="sYf-hX-Kwk" customClass="SetCardView">
-                                <rect key="frame" x="259" y="85" width="40" height="57"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view contentMode="scaleToFill" id="H6l-Hc-CJG" customClass="SetCardView">
-                                <rect key="frame" x="16" y="20" width="40" height="57"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view contentMode="scaleToFill" id="8Fr-zh-yEJ" customClass="SetCardView">
-                                <rect key="frame" x="64" y="20" width="40" height="57"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view contentMode="scaleToFill" id="XxZ-1L-0DS" customClass="SetCardView">
-                                <rect key="frame" x="112" y="20" width="40" height="57"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view contentMode="scaleToFill" id="qCh-rj-oKD" customClass="SetCardView">
-                                <rect key="frame" x="163" y="20" width="40" height="57"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view contentMode="scaleToFill" id="68z-Pk-0bh" customClass="SetCardView">
-                                <rect key="frame" x="211" y="20" width="40" height="57"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view contentMode="scaleToFill" id="H1z-w7-MIt" customClass="SetCardView">
-                                <rect key="frame" x="259" y="20" width="40" height="57"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view contentMode="scaleToFill" id="dAI-zx-Vmb" customClass="SetCardView">
-                                <rect key="frame" x="16" y="150" width="40" height="57"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view contentMode="scaleToFill" id="i8c-Wf-AkM" customClass="SetCardView">
-                                <rect key="frame" x="64" y="150" width="40" height="57"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view contentMode="scaleToFill" id="Kp6-Xw-58H" customClass="SetCardView">
-                                <rect key="frame" x="112" y="150" width="40" height="57"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view contentMode="scaleToFill" id="VdL-K4-qcv" customClass="SetCardView">
-                                <rect key="frame" x="163" y="150" width="40" height="57"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view contentMode="scaleToFill" id="h1Z-Fz-0nX" customClass="SetCardView">
-                                <rect key="frame" x="211" y="150" width="40" height="57"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view contentMode="scaleToFill" id="5Ch-hK-fq1" customClass="SetCardView">
-                                <rect key="frame" x="259" y="150" width="40" height="57"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view contentMode="scaleToFill" id="k4E-OT-2g7" customClass="SetCardView">
-                                <rect key="frame" x="16" y="215" width="40" height="57"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view contentMode="scaleToFill" id="8Gv-ic-VMk" customClass="SetCardView">
-                                <rect key="frame" x="64" y="215" width="40" height="57"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view contentMode="scaleToFill" id="Kc0-3F-7l7" customClass="SetCardView">
-                                <rect key="frame" x="112" y="215" width="40" height="57"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view contentMode="scaleToFill" id="1p3-c5-yXP" customClass="SetCardView">
-                                <rect key="frame" x="163" y="215" width="40" height="57"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view contentMode="scaleToFill" id="0V3-SY-GtC" customClass="SetCardView">
-                                <rect key="frame" x="211" y="215" width="40" height="57"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view contentMode="scaleToFill" id="c5M-Eb-TFg" customClass="SetCardView">
-                                <rect key="frame" x="259" y="215" width="40" height="57"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view contentMode="scaleToFill" id="1X8-7C-962" customClass="SetCardView">
-                                <rect key="frame" x="17" y="280" width="40" height="57"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view contentMode="scaleToFill" id="Nn8-xs-pMv" customClass="SetCardView">
-                                <rect key="frame" x="65" y="280" width="40" height="57"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view contentMode="scaleToFill" id="jXg-d4-kDO" customClass="SetCardView">
-                                <rect key="frame" x="113" y="280" width="40" height="57"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view contentMode="scaleToFill" id="OLr-Jc-H4c" customClass="SetCardView">
-                                <rect key="frame" x="164" y="280" width="40" height="57"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view contentMode="scaleToFill" id="dcN-k9-Vrg" customClass="SetCardView">
-                                <rect key="frame" x="212" y="280" width="40" height="57"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view contentMode="scaleToFill" id="pJh-Cb-hG7" customClass="SetCardView">
-                                <rect key="frame" x="260" y="280" width="40" height="57"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
+                            <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="DcX-TY-gkl">
+                                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="312" id="ORr-RU-x9U"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="G0e-Kr-aTS">
+                                    <size key="itemSize" width="57" height="71"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SetCard" id="tB3-6q-Zlq" customClass="SetCardCollectionViewCell">
+                                        <rect key="frame" x="0.0" y="0.0" width="57" height="71"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="57" height="71"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZFh-NA-Ece" customClass="SetCardView">
+                                                    <color key="backgroundColor" red="1" green="0.082341435350000006" blue="0.1649886924" alpha="1" colorSpace="calibratedRGB"/>
+                                                </view>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="ZFh-NA-Ece" firstAttribute="leading" secondItem="tB3-6q-Zlq" secondAttribute="leading" constant="-115" id="LSv-3W-X8U"/>
+                                            <constraint firstItem="ZFh-NA-Ece" firstAttribute="top" secondItem="tB3-6q-Zlq" secondAttribute="top" constant="-131" id="iXr-Nk-rX4"/>
+                                            <constraint firstAttribute="bottom" secondItem="ZFh-NA-Ece" secondAttribute="bottom" constant="-110" id="naq-vi-6ui"/>
+                                            <constraint firstAttribute="trailing" secondItem="ZFh-NA-Ece" secondAttribute="trailing" constant="-108" id="w7a-kN-jBL"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="setCardView" destination="ZFh-NA-Ece" id="U1O-YU-3Dm"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="Y6O-3q-nmH" id="JeP-Dk-yKh"/>
+                                    <outlet property="delegate" destination="Y6O-3q-nmH" id="h5T-Qx-l5m"/>
+                                </connections>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="DcX-TY-gkl" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="9L7-wc-Bpr"/>
+                            <constraint firstItem="DcX-TY-gkl" firstAttribute="top" secondItem="EQP-96-Rlk" secondAttribute="top" constant="20" symbolic="YES" type="default" id="L3v-Al-1Pa"/>
+                            <constraint firstItem="acb-6D-X3Y" firstAttribute="centerY" secondItem="Od0-8b-Ueg" secondAttribute="centerY" type="default" id="LYx-yl-kjG"/>
+                            <constraint firstItem="U3r-GC-val" firstAttribute="baseline" secondItem="Od0-8b-Ueg" secondAttribute="baseline" type="default" id="MG1-CH-ffW"/>
+                            <constraint firstItem="DcX-TY-gkl" firstAttribute="leading" secondItem="EQP-96-Rlk" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="MkD-2k-O3Z"/>
+                            <constraint firstAttribute="bottom" secondItem="acb-6D-X3Y" secondAttribute="bottom" constant="15" id="Ot8-S2-6Yl"/>
+                            <constraint firstAttribute="bottom" secondItem="7He-Mt-ums" secondAttribute="bottom" constant="50" id="SAZ-Ej-5GZ"/>
+                            <constraint firstItem="U3r-GC-val" firstAttribute="leading" secondItem="acb-6D-X3Y" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="WxP-EO-isI"/>
+                            <constraint firstItem="acb-6D-X3Y" firstAttribute="leading" secondItem="Od0-8b-Ueg" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="Xmg-Rd-CXk"/>
+                            <constraint firstItem="7He-Mt-ums" firstAttribute="leading" secondItem="Od0-8b-Ueg" secondAttribute="leading" type="default" id="lmk-pe-RVf"/>
+                            <constraint firstItem="acb-6D-X3Y" firstAttribute="centerX" secondItem="7He-Mt-ums" secondAttribute="centerX" type="default" id="sGf-xe-eGh"/>
+                            <constraint firstAttribute="trailing" secondItem="U3r-GC-val" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="vGb-7F-ft3"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Set" id="157-t4-WcU"/>
                     <connections>
+                        <outlet property="cardCollectionView" destination="DcX-TY-gkl" id="9zH-WR-4sN"/>
                         <outlet property="flipMessageLabel" destination="7He-Mt-ums" id="4C5-Oo-oBe"/>
                         <outlet property="flipsLabel" destination="Od0-8b-Ueg" id="CFB-eI-ruw"/>
                         <outlet property="scoreLabel" destination="U3r-GC-val" id="c2j-3o-Rdy"/>
-                        <outletCollection property="cardViews" destination="H6l-Hc-CJG" id="gbA-2o-d8V"/>
-                        <outletCollection property="cardViews" destination="8Fr-zh-yEJ" id="c25-pY-V7D"/>
-                        <outletCollection property="cardViews" destination="XxZ-1L-0DS" id="hVF-x8-PK2"/>
-                        <outletCollection property="cardViews" destination="qCh-rj-oKD" id="oJK-j6-J0b"/>
-                        <outletCollection property="cardViews" destination="68z-Pk-0bh" id="Gj8-1w-J9H"/>
-                        <outletCollection property="cardViews" destination="H1z-w7-MIt" id="DgX-GM-4bv"/>
-                        <outletCollection property="cardViews" destination="3tT-p0-Dmj" id="qfY-xV-W2t"/>
-                        <outletCollection property="cardViews" destination="vK7-qm-XUW" id="Bvv-Hg-57W"/>
-                        <outletCollection property="cardViews" destination="bdc-P0-Wef" id="VUh-qm-Zki"/>
-                        <outletCollection property="cardViews" destination="Drf-e6-Uw4" id="ZYI-Iw-Djt"/>
-                        <outletCollection property="cardViews" destination="dNs-q8-Gp9" id="R4u-En-zGA"/>
-                        <outletCollection property="cardViews" destination="sYf-hX-Kwk" id="3TZ-rJ-NHJ"/>
-                        <outletCollection property="cardViews" destination="dAI-zx-Vmb" id="jEo-He-GF6"/>
-                        <outletCollection property="cardViews" destination="i8c-Wf-AkM" id="pCW-XN-wVE"/>
-                        <outletCollection property="cardViews" destination="Kp6-Xw-58H" id="QOu-03-flX"/>
-                        <outletCollection property="cardViews" destination="VdL-K4-qcv" id="3iN-Q8-cTC"/>
-                        <outletCollection property="cardViews" destination="h1Z-Fz-0nX" id="aEe-97-fAJ"/>
-                        <outletCollection property="cardViews" destination="5Ch-hK-fq1" id="JqJ-EL-ZsI"/>
-                        <outletCollection property="cardViews" destination="k4E-OT-2g7" id="Fp5-9g-dMr"/>
-                        <outletCollection property="cardViews" destination="8Gv-ic-VMk" id="d1X-84-kYV"/>
-                        <outletCollection property="cardViews" destination="Kc0-3F-7l7" id="3Jk-OZ-4p5"/>
-                        <outletCollection property="cardViews" destination="1p3-c5-yXP" id="Xnc-3Z-WrY"/>
-                        <outletCollection property="cardViews" destination="0V3-SY-GtC" id="Wtg-bt-uqE"/>
-                        <outletCollection property="cardViews" destination="c5M-Eb-TFg" id="6d7-53-GqS"/>
-                        <outletCollection property="cardViews" destination="1X8-7C-962" id="aaJ-t2-16U"/>
-                        <outletCollection property="cardViews" destination="Nn8-xs-pMv" id="LXj-IJ-UCz"/>
-                        <outletCollection property="cardViews" destination="jXg-d4-kDO" id="jF3-W5-CD5"/>
-                        <outletCollection property="cardViews" destination="OLr-Jc-H4c" id="fqj-Vv-d08"/>
-                        <outletCollection property="cardViews" destination="dcN-k9-Vrg" id="JHn-cY-SgF"/>
-                        <outletCollection property="cardViews" destination="pJh-Cb-hG7" id="TUA-tO-4C0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AdB-Aa-dNd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -426,6 +351,7 @@
         <class className="CardGameViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CardGameViewController.h"/>
             <relationships>
+                <relationship kind="outlet" name="cardCollectionView" candidateClass="UICollectionView"/>
                 <relationship kind="outlet" name="flipMessageLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="flipsLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="scoreLabel" candidateClass="UILabel"/>
@@ -436,8 +362,17 @@
         <class className="MatchCardGameViewController" superclassName="CardGameViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MatchCardGameViewController.h"/>
         </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
         <class className="PlayingCardView" superclassName="UIView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PlayingCardView.h"/>
+        </class>
+        <class className="SetCardCollectionViewCell" superclassName="UICollectionViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SetCardCollectionViewCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="setCardView" candidateClass="SetCardView"/>
+            </relationships>
         </class>
         <class className="SetCardView" superclassName="UIView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SetCardView.h"/>
@@ -445,11 +380,14 @@
         <class className="SetGameViewController" superclassName="CardGameViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SetGameViewController.h"/>
         </class>
+        <class className="UICollectionReusableView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionReusableView.h"/>
+        </class>
+        <class className="UICollectionViewCell" superclassName="UICollectionReusableView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewCell.h"/>
+        </class>
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
-        </class>
-        <class className="UICollectionViewLayout" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

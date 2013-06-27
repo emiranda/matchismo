@@ -28,15 +28,19 @@
     return 1;
 }
 
--(Deck *)deck
-{
-    return [[PlayingCardDeck alloc] init];
-}
 
 -(int)matchCount
 {
     return 2;
 }
+
+- (Deck *)getDeck
+{
+    // abstract
+    return [[PlayingCardDeck alloc] init];
+}
+
+
 
 // For this view control the actual contents is perfectly fine
 -(NSAttributedString *)parseCardContentsForDisplay:(Card *)card
